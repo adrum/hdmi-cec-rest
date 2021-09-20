@@ -66,7 +66,7 @@ func activeDeviceHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
-		devices = hdmiControl.GetActiveDeviceList()
+		devices := hdmiControl.GetActiveDeviceList()
 		for index, device := range devices {
 			if (device.ActiveSource) {
 				SendOjectResponse(w, device)
