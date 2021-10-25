@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"../hdmiControl"
+	"github.com/adrum/hdmi-cec-rest/hdmiControl"
 	"github.com/gorilla/mux"
 )
 
@@ -76,7 +76,7 @@ func activeDeviceHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "POST":
 		hdmiControl.InputSelect(getRequestBody(w, r).Device)
-	}	
+	}
 }
 
 func getRequestBody(w http.ResponseWriter, r *http.Request) Request {

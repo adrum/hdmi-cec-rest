@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"./webservice"
+	"github.com/adrum/hdmi-cec-rest/webservice"
 )
 
 func main() {
