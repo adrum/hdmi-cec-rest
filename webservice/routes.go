@@ -10,7 +10,8 @@ import (
 )
 
 type Request struct {
-	State string `json:"state"`
+	State  string `json:"state"`
+	Device string `json:"device"`
 }
 
 func GetRouter() *mux.Router {
@@ -67,8 +68,8 @@ func activeDeviceHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
 		devices := hdmiControl.GetActiveDeviceList()
-		for index, device := range devices {
-			if (device.ActiveSource) {
+		for _, device := range devices {
+			if device.ActiveSource {
 				SendOjectResponse(w, device)
 			}
 		}

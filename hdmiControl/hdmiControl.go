@@ -66,3 +66,9 @@ func SetVolume(state string) error {
 		return errors.New("Invalid volume state given.")
 	}
 }
+
+func InputSelect(address string) {
+	s := fmt.Sprintf("4F:82:%s", address)
+	// hdmi.Transmit("4F:82:31:00")
+	hdmi.Transmit(s)
+}
